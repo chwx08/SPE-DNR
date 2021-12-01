@@ -23,7 +23,7 @@ One test image with corresponding seed maps and soma masks is in folder './test_
 
 ## Citation
 If the code or method help with your research, please cite the following paper:
-'''
+```
 @article{Chen2021deep,
   title={Deep-learning based automated neuron reconstruction from 3D microscopy images using synthetic training images},
   author={Chen, Weixun and Liu, Min and Du, Hao and Radojević, Miroslav and Wang, Yaonan and Meijering, Erik},
@@ -31,4 +31,4 @@ If the code or method help with your research, please cite the following paper:
   year={2021},
   doi={https://doi.org/10.1109/TMI.2021.3130934}
 }
-'''
+```
