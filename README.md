@@ -1,4 +1,4 @@
-# Spherical-Patches-Extraction and Deep-Learning Based Neuron Reconstructor (SPE-DNR)
+# Spherical-Patches-Extraction and Deep-Learning Based Neuron Reconstructor (SPE-DNR) [[paper]](https://doi.org/10.1109/TMI.2021.3130934)
 
 ## Introduction
 This is the source code for the spherical-patches-extraction and deep-learning based neuron reconstructor (SPE-DNR) with pretrained weights.   
@@ -22,4 +22,13 @@ In folder './checkpoint/classification_checkpoints'.
 One test image with corresponding seed maps and soma masks is in folder './test_samples'.
 
 ## Citation
-If the code or method help you in the research, please cite the following paper:
+If the code or method help with your research, please cite the following paper:
+'''
+@article{Chen2021deep,
+  title={Deep-learning based automated neuron reconstruction from 3D microscopy images using synthetic training images},
+  author={Chen, Weixun and Liu, Min and Du, Hao and Radojević, Miroslav and Wang, Yaonan and Meijering, Erik},
+  journal={IEEE Transactions on Medical Imaging},
+  year={2021},
+  doi={https://doi.org/10.1109/TMI.2021.3130934}
+}
+'''
