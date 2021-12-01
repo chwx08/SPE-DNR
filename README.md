@@ -1,8 +1,10 @@
 # Spherical-Patches-Extraction and Deep-Learning Based Neuron Reconstructor (SPE-DNR) [[paper]](https://doi.org/10.1109/TMI.2021.3130934)
 
 ## Introduction
-This is the source code for the spherical-patches-extraction and deep-learning based neuron reconstructor (SPE-DNR) with pretrained weights.   
-SPE-DNR is an automatic method for neuron reconstruction from 3D microscopy images.
+The spherical-patches-extraction and deep-learning based neuron reconstructor (SPE-DNR) is an automatic method for neuron reconstruction from 3D microscopy images.  
+
+This is the source code for the SPE-DNR with pretrained weights. And [here](https://github.com/chwx08/SPE-DNR_Supplementary_Materials) is the full supplementary material of the paper.
+
 
 ## Requirments
 * pytorch==1.7.1  
