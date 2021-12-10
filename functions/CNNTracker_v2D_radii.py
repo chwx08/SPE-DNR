@@ -8,7 +8,7 @@ from functions.utlis import Spherical_Patches_Extraction, Node
 
 class Tracker(object):
     def __init__(self, img2, soma_mask2, terminations, Lambda, K, 
-                 angle_T, max_iter, step_size, node_step, mask_size, 
+                 angle_T, max_iter, step_size, node_step, mask_size, psize,
                  Ma, Mp, n, Xb, Yb, Zb, 
                  model, sphere_core, sphere_core_label, device):
         
@@ -23,6 +23,7 @@ class Tracker(object):
         self.Ma = Ma
         self.Mp = Mp
         self.n = n
+        self.psize = psize
         self.Xb = Xb
         self.Yb = Yb
         self.Zb = Zb
@@ -50,9 +51,9 @@ class Tracker(object):
         n = np.rint(nd).astype(int)
         radii = 2*np.rint(radii).astype(int)
         X, Y, Z = np.meshgrid(
-                    constrain_range(n[0] - radii, n[0] + radii + 1, self.n, self.Xb - self.n - 1),
-                    constrain_range(n[1] - radii, n[1] + radii + 1, self.n, self.Yb - self.n - 1),
-                    constrain_range(n[2] - radii, n[2] + radii + 1, self.n, self.Zb - self.n - 1))
+                    constrain_range(n[0] - radii, n[0] + radii + 1, self.psize, self.Xb - self.psize - 1),
+                    constrain_range(n[1] - radii, n[1] + radii + 1, self.psize, self.Yb - self.psize - 1),
+                    constrain_range(n[2] - radii, n[2] + radii + 1, self.psize, self.Zb - self.psize - 1))
         if index == 0:
             self.indx_map[Z, X, Y] = self.pt_index
         else:
@@ -69,10 +70,10 @@ class Tracker(object):
                 self.traced_seed.append(position)
                 continue           
 
-            if position[0] <= self.n or position[1] <= self.n or \
-               position[2] <= self.n or position[0] >= self.Xb-self.n-1 or \
-               position[1] >= self.Yb - self.n - 1 or \
-               position[2] >= self.Zb - self.n - 1:
+            if position[0] <= self.psize or position[1] <= self.psize or \
+               position[2] <= self.psize or position[0] >= self.Xb-self.psize-1 or \
+               position[1] >= self.Yb - self.psize - 1 or \
+               position[2] >= self.Zb - self.psize - 1:
                 continue
             
             # SPE for feature extraction
@@ -169,10 +170,10 @@ class Tracker(object):
                 next_position = position + direction1 * np.max([radii, self.step_size])
             correct_flag = 0
             
-            if next_position[0]<=self.n or next_position[1]<=self.n or \
-               next_position[2]<=self.n or next_position[0]>=self.Xb-self.n-1 or \
-               next_position[1]>=self.Yb-self.n-1 or \
-               next_position[2]>=self.Zb-self.n-1:
+            if next_position[0]<=self.psize or next_position[1]<=self.psize or \
+               next_position[2]<=self.psize or next_position[0]>=self.Xb-self.psize-1 or \
+               next_position[1]>=self.Yb-self.psize-1 or \
+               next_position[2]>=self.Zb-self.psize-1:
                 print('reached boundary', next_position, cc)
                 self.boundary_location.append(next_position)
                 break
