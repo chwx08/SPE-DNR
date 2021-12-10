@@ -110,7 +110,7 @@ for i in range(len(img_cand)):
         
     # tracing
     tracker = Tracker(img2, soma_mask2, candidate_file, Lambda, K,
-                      angle_T, max_iter, step_size, node_step, mask_size, 
+                      angle_T, max_iter, step_size, node_step, mask_size, psize,
                       Ma, Mp, n, Xb, Yb, Zb, 
                       model, sphere_core, sphere_core_label, device)    
     tracker.trace_JointDecision()
