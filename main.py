@@ -123,9 +123,9 @@ for i in range(len(img_cand)):
     swc[:,2:5] = swc[:,2:5] + 1 # Vaa3d starts from 1 but python from 0   
     distance_transform = distance_transform_edt(soma_mask)
     # build soma shape
-    for i in range(len(swc)):
-        if swc[i,-1] == -1:
-            swc[i, 5] = distance_transform[int(swc[i, 4]), int(swc[i, 3]), int(swc[i, 2])]
+    for k in range(len(swc)):
+        if swc[k,-1] == -1:
+            swc[k, 5] = distance_transform[int(swc[k, 4]), int(swc[k, 3]), int(swc[k, 2])]
     # use this result for multi-neuron reconstruction
     save_swc_path = results_path + img_ind + '.swc'
     connected(soma_mask, img, swc, save_swc_path, distance_transform)
